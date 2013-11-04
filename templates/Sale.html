@@ -1,0 +1,39 @@
+{literal}
+<style type="text/css">
+    .saleproducts ul{padding: 0px;}
+    .saleproducts_title{text-align: center;font-weight: bold;margin: 10px 0px;}
+    .saleproducts ul li{list-style: none;margin-bottom: 20px;}
+    .saleproducts_img{text-align: center;}
+    .saleproducts_name{text-align: center;}
+    .product-price{text-align: center;}
+    .saleproducts_link{text-align: center;}
+</style>
+{/literal}
+{if $sale_products}
+    <div class="saleproducts">
+    <div class="saleproducts_title">Распродажа</div>
+    <ul>
+    {foreach from=$sale_products item=product}
+        <li>
+        <div class="saleproducts_img">
+        <a href="{$wa->shop->productUrl($product)}">
+        {$wa->shop->productImgHtml($product, '100x100', ['itemprop' => 'image', 'alt' => $product.name])}  
+        </a>
+        </div>
+        <div class="saleproducts_name">
+        <a href="{$product.frontend_url}">
+            <span itemprop="name">{$product.name|truncate:60}</span>
+        </a>
+        </div>
+        <div class="product-price">
+        <span class="compare-at-price nowrap">{shop_currency($product.compare_price)}</span>
+        <span class="price nowrap" itemprop="price">{shop_currency($product.price)}</span>
+        </div>
+        </li>
+    {/foreach}
+    </ul>
+    </div>
+    <div class="saleproducts_link">
+        <a  href="{$wa->getUrl('shop/frontend/sale')}">Все товары</a>
+    </div>
+{/if}
