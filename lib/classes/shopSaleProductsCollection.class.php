@@ -6,8 +6,12 @@ class shopSaleProductsCollection extends shopProductsCollection {
         if ($this->filtered) {
             return;
         }
-
+        $routing = wa()->getRouting();
+        $route = $routing->getRoute();
         $this->where[] = 'p.compare_price > p.price';
+        if (!empty($route['type_id'])) {
+            $this->where[] = "`p`.`type_id` IN (" . implode(',', $route['type_id']) . ")";
+        }
 
         if ($rand) {
             $this->order_by = "RAND()";
