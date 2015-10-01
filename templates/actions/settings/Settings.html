@@ -67,13 +67,9 @@
                     Статус плагина
                 </div>
                 <div class="value no-shift s-ibutton-checkbox">
-                    <ul class="menu-h">
-                        <li>Выключен</li>
-                        <li>
-                            <input type="checkbox" id="ibutton-status" name="shop_sale[status]" value="1"{if $settings.status} checked{/if}>
-                        </li>
-                        <li>Включен</li>
-                    </ul>
+                    <input type="hidden" name="shop_sale[status]" value="0">
+                    <input type="checkbox" id="ibutton-status" name="shop_sale[status]" value="1"{if $settings.status} checked{/if}>
+
                 </div>
             </div>
         </div>

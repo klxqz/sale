@@ -2,11 +2,9 @@
 
 class shopSalePluginFrontendSaleAction extends shopFrontendAction {
 
-    protected $plugin_id = array('shop', 'sale');
-
     public function execute() {
         $app_settings_model = new waAppSettingsModel();
-        $status = $app_settings_model->get($this->plugin_id, 'status');
+        $status = $app_settings_model->get(shopSalePlugin::$plugin_id, 'status');
 
         if (!$status) {
             throw new waException(_ws("Page not found"), 404);
