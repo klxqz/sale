@@ -4,7 +4,7 @@ return array(
     'name' => 'Распродажа',
     'description' => 'Отдельная страница из товаров, у которые есть зачеркнутая цена',
     'vendor' => '985310',
-    'version' => '1.1.1',
+    'version' => '1.1.2',
     'img' => 'img/sale.png',
     'shop_settings' => true,
     'frontend' => true,

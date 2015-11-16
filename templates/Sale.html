@@ -1,19 +1,19 @@
-{literal}
-    <style type="text/css">
-        .saleproducts ul{padding: 0px;}
-        .saleproducts_title{text-align: center;font-weight: bold;margin: 10px 0px;}
-        .saleproducts ul li{list-style: none;margin-bottom: 20px;}
-        .saleproducts_img{text-align: center;}
-        .saleproducts_name{text-align: center;}
-        .product-price{text-align: center;}
-        .saleproducts_link{text-align: center;}
-    </style>
-{/literal}
+<style type="text/css">
+    .saleproducts ul{ padding: 0px; }
+    .saleproducts_title{ text-align: center;font-weight: bold;margin: 10px 0px; }
+    .saleproducts ul li{ list-style: none;margin-bottom: 20px; }
+    .saleproducts_img{ text-align: center; }
+    .saleproducts_name{ text-align: center; }
+    .product-price{ text-align: center; }
+    .saleproducts_link{ text-align: center; }
+    .compare-at-price{ text-decoration: line-through; }
+    .nowrap{ white-space: nowrap; }
+</style>
 {if $sale_products}
     <div class="saleproducts">
         <div class="saleproducts_title">Распродажа</div>
         <ul>
-            {foreach from=$sale_products item=product}
+            {foreach $sale_products as $product}
                 <li>
                     <div class="saleproducts_img">
                         <a href="{$wa->shop->productUrl($product)}">

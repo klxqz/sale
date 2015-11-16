@@ -9,6 +9,7 @@ class shopSaleProductsCollection extends shopProductsCollection {
         $routing = wa()->getRouting();
         $route = $routing->getRoute();
         $this->where[] = 'p.compare_price > p.price';
+        $this->where[] = 'p.status != 0';
         if (!empty($route['type_id'])) {
             $this->where[] = "`p`.`type_id` IN (" . implode(',', $route['type_id']) . ")";
         }
